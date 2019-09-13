@@ -19,9 +19,11 @@ We iterate over the `policy_id`s in the `signatures.json` file. For each `policy
 We then `JSON.stringify()` the policy and check it against the signature and public key.
 ## TODO
 - DON'T HARDCODE KEYS IN SOURCE!
+- Move to `CityOfLosAngeles` GitHub org
 - Make CLI argument passing more robust
 - Allow passing in keys via args or env vars
 - Discuss key management/distribution infrastructure (via [Vault](https://www.vaultproject.io), 1Password, or maybe AWS KMS)
 - Vet [asymmetric-crypto](https://www.npmjs.com/package/asymmetric-crypto) npm package
 - Write tests
+- Convert to TypeScript
 - Determine what portion of the `policy` needs to be signed, the whole thing or just the set of `rules`?
