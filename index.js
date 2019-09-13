@@ -1,5 +1,6 @@
 const crypto = require('asymmetric-crypto')
 const fs = require('fs')
+const chalk = require('chalk')
 
 // const keyPair = crypto.keyPair()
 const keyPair = {
@@ -20,7 +21,6 @@ let policySignatures
 
 switch(process.argv[2]) {
   case 'sign':
-    // do stuff
     policySignatures = {}
     for (const policy of policies) {
       const { policy_id } = policy
@@ -29,16 +29,21 @@ switch(process.argv[2]) {
     fs.writeFileSync(process.argv[4], JSON.stringify(policySignatures))
     break
   case 'verify':
-    // verify
     policySignatures = JSON.parse(fs.readFileSync(process.argv[4]))
 
+    let success = true
     for (const policy of policies) {
       const { policy_id } = policy
       if (!verify(policy, policySignatures[policy_id])) {
-        throw new Error('Invalid policy signature encountered')
+        console.log(chalk.red(`Policy ${chalk.blue(policy_id)} has an invalid signature...🤔`))
+        success = false
       }
     }
-    console.log('Policies check out!')
+    if (success) {
+      console.log(chalk.green('Policies check out!'))
+    } else {
+      console.log(chalk.red('Policy verification failed'))
+    }
     break
   default:
     console.error('Must specify "sign" or "verify"')

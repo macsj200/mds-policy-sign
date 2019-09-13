@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "asymmetric-crypto": "^1.0.2"
+    "asymmetric-crypto": "^1.0.2",
+    "chalk": "^2.4.2"
   }
 }
