@@ -5,6 +5,8 @@ This tool signs and verifies [Mobility Data Specification](https://github.com/Ci
 - Install node `v8.10.0` via `nvm`
 - Clone this repo & `cd` in
 - Run `npm install`
+## Test
+`./tests/test-api.sh`
 ## Usage
 ### Sign
 `node index.js sign ./sample-policies.json ./sample-signatures.json`
