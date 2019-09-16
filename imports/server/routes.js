@@ -16,3 +16,15 @@ JsonRoutes.add("post", "/verify", function (req, res, next) {
     data: { result: verify(policy, signature) }
   })
 })
+
+JsonRoutes.add("get", "/public_key", function (req, res, next) {
+  JsonRoutes.sendResult(res, {
+    data: process.env.PUBLIC_KEY
+  })
+})
+
+JsonRoutes.add("get", "/roll_keys", function (req, res, next) {
+  JsonRoutes.sendResult(res, {
+    data: process.env.PUBLIC_KEY
+  })
+})
