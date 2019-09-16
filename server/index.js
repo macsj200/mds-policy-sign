@@ -1,1 +1,1 @@
-import '../imports/server/signature_methods'
+import '../imports/server/routes'
